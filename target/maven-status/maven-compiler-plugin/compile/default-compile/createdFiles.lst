@@ -1,0 +1,13 @@
+servlet\LoginGithub.class
+dao\exceptions\NonexistentEntityException.class
+utils\DateUtils.class
+utils\JwtUtil.class
+servlet\Login.class
+dao\ClienteJpaController.class
+dto\Cliente_.class
+servlet\CallbackGithub.class
+sockets\ChatWs.class
+utils\BcryptJava.class
+dao\exceptions\PreexistingEntityException.class
+dao\exceptions\IllegalOrphanException.class
+dto\Cliente.class
