@@ -73,7 +73,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
 </head>
 
 <body>
@@ -103,16 +103,40 @@
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            //BCRYPT
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+
+            const clave = "la fe de cuto";
+
+            //------------ DES1 ENCRYPTION -------------//
+            const keyUtf8 = CryptoJS.enc.Utf8.parse(clave);
+            const encryptedDES = CryptoJS.DES.encrypt(password, keyUtf8, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+            });
+            const passwordCifradaDES = encryptedDES.toString(); // Base64
+
+            //------------------------------------------//
+
+            
+            //------- Cifrado AES compatible con Java (ECB, Pkcs7) ----------//
+            const claveAES = "1234567890123456"; // 16 caracteres
+            const key = CryptoJS.enc.Utf8.parse(claveAES);
+            const encryptedAES = CryptoJS.AES.encrypt(password, key, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+            const passwordCifradaAES = encryptedAES.toString(); // Base64
+            //----------------------------------------------------------------//
+
 
             const res = await fetch('http://localhost:8080/Test4/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password: passwordCifradaAES }),
             });
 
             const data = await res.json();

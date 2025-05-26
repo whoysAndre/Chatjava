@@ -4,12 +4,14 @@ servlet\ApiClientes.class
 utils\DateUtils.class
 utils\JwtUtil.class
 servlet\Login.class
+utils\DES1.class
 dao\ClienteJpaController.class
 servlet\GenerateReport.class
 dto\Cliente_.class
 servlet\CallbackGithub.class
 sockets\ChatWs.class
 utils\BcryptJava.class
+utils\AES.class
 dao\exceptions\PreexistingEntityException.class
 dao\exceptions\IllegalOrphanException.class
 dto\Cliente.class

@@ -1,5 +1,6 @@
 D:\java\Test4\src\main\java\servlet\GenerateReport.java
 D:\java\Test4\src\main\java\dao\exceptions\PreexistingEntityException.java
+D:\java\Test4\src\main\java\utils\AES.java
 D:\java\Test4\src\main\java\servlet\Login.java
 D:\java\Test4\src\main\java\dao\ClienteJpaController.java
 D:\java\Test4\src\main\java\servlet\LoginGithub.java
@@ -9,6 +10,7 @@ D:\java\Test4\src\main\java\sockets\ChatWs.java
 D:\java\Test4\src\main\java\servlet\ApiClientes.java
 D:\java\Test4\src\main\java\utils\DateUtils.java
 D:\java\Test4\src\main\java\servlet\CallbackGithub.java
+D:\java\Test4\src\main\java\utils\DES1.java
 D:\java\Test4\src\main\java\utils\BcryptJava.java
 D:\java\Test4\src\main\java\dao\exceptions\IllegalOrphanException.java
 D:\java\Test4\src\main\java\utils\JwtUtil.java

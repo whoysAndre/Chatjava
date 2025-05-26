@@ -1,3 +1,4 @@
+
 package servlet;
 
 import java.io.IOException;
@@ -24,7 +25,6 @@ public class LoginGithub extends HttpServlet {
                 "?client_id=" + CLIENT_ID +
                 "&redirect_uri=" + URLEncoder.encode(REDIRECT_URI, "UTF-8") +
                 "&scope=user:email";  // permisos que pides (email público)
-
         resp.sendRedirect(url);
     }
 }
