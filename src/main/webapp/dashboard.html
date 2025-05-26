@@ -1,11 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Dashboard Moderno</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 </head>
+
 <body>
-  <h1>Logeo exitosooooo</h1>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Mi Dashboard</h3>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="#" class="active">
+            <i class="icon">📊</i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="./chat.html">Chat 🔥</a>
+        </li>
+        <li>
+          <a href="./clientes.html">
+            <i class="icon">👥</i> Clientes
+          </a>
+        </li>
+        <li class="has-dropdown">
+          <button id="generar-reporte">
+            <i class="icon">📝</i> Reportes
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Ventas</a></li>
+            <li><a href="#">Inventario</a></li>
+            <li><a href="#">Finanzas</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./changepass.html">
+            <i class="icon">⚙️</i> Configuración
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="icon">🆘</i> Ayuda
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <span class="toggle-sidebar" id="toggle-sidebar">
+          <i class="icon">☰</i>
+        </span>
+      </div>
+      <div class="header-right">
+        <div class="user-menu" id="user-menu">
+          <img src="https://via.placeholder.com/40" alt="User">
+          <span class="user-name" id="username"></span>
+          <div class="dropdown-content" id="user-dropdown">
+            <a href="#">Mi Perfil</a>
+            <a href="#">Configuración</a>
+            <a href="#">Cerrar Sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Dashboard</h1>
+          <ul class="breadcrumb">
+            <li><a href="#">Inicio</a></li>
+            <li>Dashboard</li>
+          </ul>
+        </div>
+        <div>
+          <button class="btn-refresh">Actualizar</button>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Ventas Totales</h3>
+            <div class="card-icon primary">
+              <i class="icon">💰</i>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-value">$24,780</div>
+            <p class="card-text">+12% desde el mes pasado</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Nuevos Clientes</h3>
+            <div class="card-icon success">
+              <i class="icon">👥</i>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-value">1,245</div>
+            <p class="card-text">+5% desde el mes pasado</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Productos Vendidos</h3>
+            <div class="card-icon warning">
+              <i class="icon">🛒</i>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-value">3,890</div>
+            <p class="card-text">+8% desde el mes pasado</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Tickets de Soporte</h3>
+            <div class="card-icon danger">
+              <i class="icon">🆘</i>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-value">156</div>
+            <p class="card-text">-3% desde el mes pasado</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Container -->
+      <div class="chart-container">
+        <h3 class="chart-title">Ventas Mensuales</h3>
+        <div id="chart" style="height: 300px;">
+          <!-- Aquí iría el gráfico (simulado con CSS) -->
+          <div
+            style="background: #f5f7fa; height: 100%; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+            Gráfico de Ventas (simulado)
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="activity-container">
+        <h3 class="chart-title">Actividad Reciente</h3>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <i class="icon">💰</i>
+          </div>
+          <div class="activity-content">
+            <p class="activity-text">Nueva venta realizada por <strong>Juan Pérez</strong> por $1,250</p>
+            <p class="activity-time">Hace 15 minutos</p>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <i class="icon">📝</i>
+          </div>
+          <div class="activity-content">
+            <p class="activity-text"><strong>María Gómez</strong> creó un nuevo proyecto "Rediseño Web"</p>
+            <p class="activity-time">Hace 2 horas</p>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <i class="icon">👤</i>
+          </div>
+          <div class="activity-content">
+            <p class="activity-text">Nuevo cliente registrado: <strong>Acme Corp</strong></p>
+            <p class="activity-time">Hace 5 horas</p>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <i class="icon">✅</i>
+          </div>
+          <div class="activity-content">
+            <p class="activity-text">Proyecto <strong>App Móvil</strong> marcado como completado</p>
+            <p class="activity-time">Ayer a las 4:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2023 Mi Dashboard. Todos los derechos reservados.</p>
+    </div>
+  </div>
+
+  <script src="./js/dashboard.js"></script>
 </body>
+
 </html>

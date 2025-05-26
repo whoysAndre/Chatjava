@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="ReporteClientes" 
+              language="groovy" 
+              pageWidth="595" 
+              pageHeight="842" 
+              columnWidth="555" 
+              leftMargin="20" 
+              rightMargin="20" 
+              topMargin="30" 
+              bottomMargin="30" 
+              uuid="a9f8c7b6-5d4e-4f3a-8c2d-1e0f9a8b7c6d">
+
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+
+    <!-- No necesitamos queryString ya que usamos JRBeanCollectionDataSource -->
+    <field name="codCli" class="java.lang.Integer">
+        <fieldDescription><![CDATA[codCli]]></fieldDescription>
+    </field>
+    <field name="dniCli" class="java.lang.String">
+        <fieldDescription><![CDATA[dniCli]]></fieldDescription>
+    </field>
+    <field name="apaCli" class="java.lang.String">
+        <fieldDescription><![CDATA[apaCli]]></fieldDescription>
+    </field>
+    <field name="amaCli" class="java.lang.String">
+        <fieldDescription><![CDATA[amaCli]]></fieldDescription>
+    </field>
+    <field name="nomCli" class="java.lang.String">
+        <fieldDescription><![CDATA[nomCli]]></fieldDescription>
+    </field>
+    <field name="fchNacCli" class="java.util.Date">
+        <fieldDescription><![CDATA[fchNacCli]]></fieldDescription>
+    </field>
+    <field name="logiCli" class="java.lang.String">
+        <fieldDescription><![CDATA[logiCli]]></fieldDescription>
+    </field>
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <title>
+        <band height="100" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="0" width="595" height="100" backcolor="#4361ee" uuid="47fa150c-d5f8-4028-9613-e1fd92dd62fa"/>
+                <staticText>
+                    <reportElement x="20" y="20" width="300" height="50" forecolor="#FFFFFF" uuid="6f2e11f1-dbb7-4f84-8e33-a9b103b8aff4"/>
+                    <textElement>
+                        <font size="28" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[Reporte de Clientes]]></text>
+                </staticText>
+                
+            </frame>
+        </band>
+    </title>
+
+    <pageHeader>
+        <band height="35" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="15" width="100" height="20" forecolor="#666666" uuid="9c3b19a2-3778-486a-a95b-d0bda252cff7"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[Generado el:]]></text>
+            </staticText>
+            <textField pattern="dd/MM/yyyy HH:mm:ss">
+                <reportElement x="100" y="15" width="150" height="20" forecolor="#666666" uuid="0e66407d-ccb4-4cf9-8bdf-f3cc645419da"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <rectangle>
+                <reportElement mode="Opaque" x="0" y="0" width="555" height="30" backcolor="#E6E6E6" uuid="4581217b-08d2-4986-b66b-a16071b37535"/>
+            </rectangle>
+            
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="30" forecolor="#4361ee" uuid="4581217b-08d2-4986-b66b-a16071b37535"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            
+            <staticText>
+                <reportElement x="50" y="0" width="80" height="30" forecolor="#4361ee" uuid="8e1cafe0-09ff-4619-9592-51d897326e15"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[DNI]]></text>
+            </staticText>
+            
+            <staticText>
+                <reportElement x="130" y="0" width="120" height="30" forecolor="#4361ee" uuid="094942f3-aae1-4827-95fd-f6c9df739e72"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Apellido Paterno]]></text>
+            </staticText>
+            
+            <staticText>
+                <reportElement x="250" y="0" width="120" height="30" forecolor="#4361ee" uuid="0bc25531-5505-44ff-af59-63e5ac80ee7a"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Apellido Materno]]></text>
+            </staticText>
+            
+            <staticText>
+                <reportElement x="370" y="0" width="100" height="30" forecolor="#4361ee" uuid="35db5039-020e-4d90-9d58-c364835f063f"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nombres]]></text>
+            </staticText>
+            
+            <staticText>
+                <reportElement x="470" y="0" width="85" height="30" forecolor="#4361ee" uuid="f3d48521-eff2-44b2-87f9-c6662eb5ddc4"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[F. Nacimiento]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="25" splitType="Stretch">
+            <rectangle>
+                <reportElement mode="Opaque" x="0" y="0" width="555" height="25" backcolor="#FFFFFF" uuid="7ce4a2bc-1c65-4ddd-a0f7-0d0b2ede3ab2"/>
+            </rectangle>
+            
+            <textField>
+                <reportElement x="0" y="0" width="50" height="25" uuid="3b6a3994-3e94-4c81-872c-313d2824382b"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{codCli}]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="50" y="0" width="80" height="25" uuid="4f38792a-5a33-49b0-b62a-39e108cdbe16"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dniCli}]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="130" y="0" width="120" height="25" uuid="bf053d31-b635-443f-8d34-d61b10a0de5c"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{apaCli}]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="250" y="0" width="120" height="25" uuid="c0c206f4-32cd-49eb-b650-d95628590a0d"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{amaCli}]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="370" y="0" width="100" height="25" uuid="ca233be5-9ccc-42b6-a1aa-8743c516fe15"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nomCli}]]></textFieldExpression>
+            </textField>
+            
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="470" y="0" width="85" height="25" uuid="5cb75486-d6ee-4557-817c-faed2e23df33"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fchNacCli}]]></textFieldExpression>
+            </textField>
+            
+            <line>
+                <reportElement x="0" y="24" width="555" height="1" forecolor="#E6E6E6" uuid="7ce4a2bc-1c65-4ddd-a0f7-0d0b2ede3ab2"/>
+            </line>
+        </band>
+    </detail>
+
+    <columnFooter>
+        <band height="15" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="0" width="555" height="1" forecolor="#666666" uuid="9c3b19a2-3778-486a-a95b-d0bda252cff7"/>
+            </line>
+        </band>
+    </columnFooter>
+
+    <pageFooter>
+        <band height="30" splitType="Stretch">
+            <textField evaluationTime="Page">
+                <reportElement x="0" y="10" width="200" height="20" forecolor="#666666" uuid="80010479-569c-47cb-a356-f8777d125a58"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="200" y="10" width="50" height="20" forecolor="#666666" uuid="d95d7c8e-44ee-49b2-98a6-811a70042b1a"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="400" y="10" width="155" height="20" forecolor="#666666" uuid="0e66407d-ccb4-4cf9-8bdf-f3cc645419da"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["© " + new java.util.Date().getYear() + 1900 + " - Mi Empresa"]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+    <summary>
+        <band height="40" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="20" forecolor="#4361ee" uuid="6f2e11f1-dbb7-4f84-8e33-a9b103b8aff4"/>
+                <textElement textAlignment="Center">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total de Clientes:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="555" y="10" width="50" height="20" forecolor="#4361ee" uuid="6f2e11f1-dbb7-4f84-8e33-a9b103b8aff4"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>

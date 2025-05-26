@@ -73,6 +73,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
 </head>
 
 <body>
@@ -121,7 +122,7 @@
                 alert('Login exitoso');
                 Cookies.set('token', data.token, { expires: 7 }); // Guardar el token en una cookie
                 Cookies.set('username', username, { expires: 7 }); // Guardar el nombre de usuario en una cookie
-                window.location.href = "http://localhost:8080/Test4/principal.html";
+                window.location.href = "http://localhost:8080/Test4/dashboard.html";
                 //console.log("Token guardado en cookie:", data.token);
             } else {
                 alert('Error: ' + data.message);
