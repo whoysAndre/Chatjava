@@ -54,6 +54,7 @@ public class ApiClientes extends HttpServlet {
             }
             String data = "{\"data\":" + jsonArrayBuilder.build().toString() + "}";
             System.out.println("hola");
+            System.out.println(1);
             out.print(data);
             out.flush();
         } else {
